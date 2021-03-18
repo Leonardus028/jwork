@@ -29,52 +29,89 @@ public class Recruiter
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
+    * Method ini digunakan untuk mengembalikan nilai id.
+    * @return id
+    */
     public int getId()
     {
         // put your code here
         return this.id;
     }
+    /**
+    * Method ini digunakan untuk mengembalikan nilai id.
+    * @return name
+    */
     public String getName()
     {
         return this.name;
     }
+    /**
+    * Method ini digunakan untuk mengembalikan nilai email.
+    * @return email
+    */
     public String getEmail()
     {
         return this.email;
     }
+    /**
+    * Method ini digunakan untuk mengembalikan nilai nomor telepon.
+    * @return phoneNumber
+    */
     public String getPhoneNumber()
     {
         return this.phoneNumber;
     }
+    /**
+    * Method ini digunakan untuk mengembalikan nilai lokasi.
+    * @return location
+    */
     public Location getLocation()
     {
         return this.location;
     }
+    /**
+    * Method ini digunakan untuk memberikan nilai id.
+    * @param id
+    */
     public void setId(int id)
     {
         this.id = id;
     }
+    /**
+    * Method ini digunakan untuk memberikan nilai email.
+    * @param email
+    */
     public void setEmail(String email)
     {
         this.email = email;
     }
+    /**
+    * Method ini digunakan untuk memberikan nilai nama.
+    * @param name
+    */
     public void setName(String name)
     {
         this.name = name;
     }
+    /**
+    * Method ini digunakan untuk memberikan nilai nomor telepon.
+    * @param phoneNumber
+    */
     public void setPhoneNumber(String phoneNumber)
     {
         this.phoneNumber = phoneNumber;
     }
+    /**
+    * Method ini digunakan untuk memberikan nilai category.
+    * @param location
+    */
     public void setLocation(Location location)
     {
         this.location = location;
     }
+    /**
+    * Method ini digunakan untuk menampilkan nama dari perekrut
+    */
     public void printData() 
     {
         System.out.println(name);

@@ -1,7 +1,7 @@
 
 /**
- * Write a description of class DatabaseJob here.
- *
+ * Class Location berfungsi untuk menangani objek yang berkaitan dengan 
+ * database pekerkaan, yang berisi list job
  * @author Leonardus Kevin
  * @version 18-3-2021
  */
