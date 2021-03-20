@@ -11,7 +11,7 @@ public class JWork
     private int x;
 
     /**
-     * Constructor for objects of class JWork
+     * Constructor untuk objects dari class JWork
      */
     public JWork()
     {
@@ -32,6 +32,12 @@ public class JWork
         Job job1 = new Job(1,"Leonardus Kevin",recruiter1,111,"Engineer");
         Jobseeker jobseeker1 = new Jobseeker(1,"Leonardus Kevin","leonardus.kevin@ui.ac.id","password","18 Maret 2021");
         Invoice invoice1 = new Invoice(1,2,"18 Maret 2021",2,jobseeker1);
+        
+        System.out.println(recruiter1.getName());
+        recruiter1.setName("HW");
+        System.out.println(recruiter1.getName());
+        
+        job1.printData();
         
         
     }

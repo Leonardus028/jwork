@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=DatabaseRecruiter
+comment0.text=\r\n\ Class\ Location\ berfungsi\ untuk\ menangani\ objek\ yang\ berkaitan\ dengan\ \r\n\ database\ pekerkaan,\ yang\ berisi\ list\ job\r\n\ @author\ Leonardus\ Kevin\r\n\ @version\ 18-3-2021\r\n
+comment1.params=
+comment1.target=DatabaseRecruiter()
+comment2.params=listRecruiter
+comment2.target=DatabaseRecruiter(java.lang.String[])
+comment3.params=recruiter
+comment3.target=boolean\ addRecruiter(Recruiter)
+comment4.params=recruiter
+comment4.target=boolean\ removeRecruiter(Recruiter)
+comment5.params=
+comment5.target=Recruiter\ getRecruiter()
+comment6.params=
+comment6.target=java.lang.String[]\ getListRecruiter()
+numComments=7

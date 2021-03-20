@@ -14,7 +14,7 @@ public class Location
     
 
     /**
-     * Constructor for objects of class Location
+     * Constructor untuk objects dari class Location
      */
     public Location(String province, String city, String description)
     {
@@ -25,41 +25,59 @@ public class Location
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
+    * Method ini digunakan untuk mengembalikan nilai provinsi.
+    * @return province
+    */
     public String getProvince()
     {
         
         return this.province;
     }
+    /**
+    * Method ini digunakan untuk mengembalikan nilai kota.
+    * @return city
+    */
     public String getCity()
     {
         
         return this.city;
     }
+    /**
+    * Method ini digunakan untuk mengembalikan nilai deskripsi.
+    * @return deskripsi
+    */
     public String getDescription()
     {
         
         return this.description;
     }
+    /**
+    * Method ini digunakan untuk memberikan nilai provinsi.
+    * @param province
+    */
     public void setProvince(String province)
     {
         this.province = province;
     }
-
+    /**
+    * Method ini digunakan untuk memberikan nilai kota.
+    * @param description
+    */
     public void setCity(String city)
     {
         this.city = city;
     }
-
+    /**
+    * Method ini digunakan untuk memberikan nilai deskripsi.
+    * @param description
+    */
     public void setDescription(String description)
     {
         this.description = description;
     }
-
+    /**
+    * Method ini digunakan untuk menampilkan nilai dari provinsi
+    */
     public void printData()
     {
         System.out.println(province);

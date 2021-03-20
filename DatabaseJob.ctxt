@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=DatabaseJob
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ DatabaseJob\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Class\ Location\ berfungsi\ untuk\ menangani\ objek\ yang\ berkaitan\ dengan\ \r\n\ database\ pekerkaan,\ yang\ berisi\ list\ job\r\n\ @author\ Leonardus\ Kevin\r\n\ @version\ 18-3-2021\r\n
 comment1.params=
 comment1.target=DatabaseJob()
 comment2.params=listJob
@@ -8,7 +8,7 @@ comment2.target=DatabaseJob(java.lang.String[])
 comment3.params=job
 comment3.target=boolean\ addJob(Job)
 comment4.params=job
-comment4.target=boolean\ remove(Job)
+comment4.target=boolean\ removeJob(Job)
 comment5.params=
 comment5.target=Job\ getJob()
 comment6.params=

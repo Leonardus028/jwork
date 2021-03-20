@@ -16,7 +16,7 @@ public class Recruiter
     
 
     /**
-     * Constructor for objects of class Recruiter
+     * Constructor untuk objects dari class Recruiter
      */
     public Recruiter(int id, String name, String email, String phoneNumber, Location location)
     {
@@ -110,7 +110,7 @@ public class Recruiter
         this.location = location;
     }
     /**
-    * Method ini digunakan untuk menampilkan nama dari perekrut
+    * Method ini digunakan untuk menampilkan nilai dari perekrut
     */
     public void printData() 
     {

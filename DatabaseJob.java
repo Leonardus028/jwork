@@ -17,7 +17,7 @@ public class DatabaseJob
     public boolean addJob(Job job){
         return false;
     }
-    public boolean remove(Job job){
+    public boolean removeJob(Job job){
         return false;
     }
     public Job getJob(){

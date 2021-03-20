@@ -16,7 +16,7 @@ public class Job
     
 
     /**
-     * Constructor for objects of class Job
+     * Constructor untuk objects dari class Job
      */
     public Job(int id, String name,Recruiter recruiter, int fee, String category)
     {
@@ -115,5 +115,6 @@ public class Job
     */
     public void printData() 
     {
+        System.out.println(name);
     }
 }

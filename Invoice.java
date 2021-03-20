@@ -16,7 +16,7 @@ public class Invoice
     private Jobseeker jobseeker;
 
     /**
-     * Constructor for objects of class Invoice
+     * Constructor untuk objects dari class Invoice
      */
     public Invoice(int id, int idJob, String date, int totalfee, Jobseeker jobseeker)
     {
@@ -27,55 +27,94 @@ public class Invoice
        this.jobseeker=jobseeker;
     
     }
-
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
+    * Method ini digunakan untuk mengembalikan nilai id.
+    * @return id
+    */
     public int getId()
     {
         return this.id;
     }
+    /**
+    * Method ini digunakan untuk mengembalikan nilai id job.
+    * @return idJob
+    */
     public int getIdJob()
     {
         return this.idJob;
     }
+    /**
+    * Method ini digunakan untuk mengembalikan nilai tanggal.
+    * @return date
+    */
     public String getDate()
     {
         return this.date;
     }
+    /**
+    * Method ini digunakan untuk mengembalikan nilai fee/bayaran.
+    * @return fee
+    */
     public int getTotalFee()
     {
         return this.totalFee;
     }
+    /**
+    * Method ini digunakan untuk mengembalikan nilai jobseeker 
+    * yang dibuat di class Jobseeker.
+    * @return Jobseeker
+    */
     public Jobseeker getJobseeker()
     {
         return this.jobseeker;
     }
+    /**
+    * Method ini digunakan untuk memberikan nilai untuk id
+    * @param id
+    */
     public void setId(int id)
     {
          this.id=id;   
     }
-    public void setIdJobs(int idJobs)
+    /**
+    * Method ini digunakan untuk memberikan nilai untuk job id.
+    * @param idJob
+    */
+    public void setIdJobs(int idJob)
     {
         this.idJob=idJob;
     }
+    /**
+    * Method ini digunakan untuk memberikan nilai untuk tanggal.
+    * @param date
+    */
     public void setDate(String date)
     {
         this.date=date;
     }
+    /**
+    * Method ini digunakan untuk memberikan nilai untuk fee/bayaran.
+    * @param fee
+    */
     public void setTotalFee(int totalFee)
     {
         this.totalFee=totalFee;
     }
+    /**
+    * Method ini digunakan untuk memberikan nilai untuk class jobseeker.
+    * @param jobseeker
+    */
     public void setJobseeker(Jobseeker jobseeker)
     {
         this.jobseeker=jobseeker;
     }
+    /**
+    * Method ini digunakan untuk menampilkan data, tetapi method ini 
+    * belum dilengkapi
+    */
     public void printData()
     {
+        System.out.println(totalFee);
     }
     
 }
