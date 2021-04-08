@@ -112,9 +112,11 @@ public class Recruiter
     /**
     * Method ini digunakan untuk menampilkan nilai dari perekrut
     */
-    public void printData() 
+    public String toString() 
     {
-        System.out.println(name);
+        
+        return "Id = " + getId() + "\nNama = " + getName() + "\nPhone Number = "
+                + getPhoneNumber() + "\nLocation = " + getLocation();
     }
     
     

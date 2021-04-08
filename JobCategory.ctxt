@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=JobCategory
+comment0.text=\r\n\ Merupakan\ Enum\ Class\ yang\ berfungsi\ untuk\ membatasi\ kategori\ \r\n\ pekerjaan\ yang\ ada\r\n\ @Leonardus\ Kevin\r\n\ @25.03.2021\r\n
+comment1.params=
+comment1.target=java.lang.String\ toString()
+numComments=2

@@ -6,25 +6,27 @@
  * @author Leonardus Kevin
  * @version 18-3-2021
  */
-public class Invoice
+public abstract class Invoice
 {
     // instance variables - replace the example below with your own
-    private int id;
-    private int idJob;
+    public int id;
+    private Job job;
     private String date;
-    private int totalFee;
+    protected int totalFee;
     private Jobseeker jobseeker;
+    private InvoiceStatus invoiceStatus;
+    
 
     /**
      * Constructor untuk objects dari class Invoice
      */
-    public Invoice(int id, int idJob, String date, int totalfee, Jobseeker jobseeker)
+    public Invoice(int id, Job job, String date, Jobseeker jobseeker, InvoiceStatus invoiceStatus)
     {
        this.id=id;
-       this.idJob=idJob;
+       this.job=job;
        this.date=date;
-       this.totalFee=totalFee;
        this.jobseeker=jobseeker;
+       this.invoiceStatus=invoiceStatus;
     
     }
     /**
@@ -36,12 +38,12 @@ public class Invoice
         return this.id;
     }
     /**
-    * Method ini digunakan untuk mengembalikan nilai id job.
+    * Method ini digunakan untuk mengembalikan nilai job.
     * @return idJob
     */
-    public int getIdJob()
+    public Job getJob()
     {
-        return this.idJob;
+        return this.job;
     }
     /**
     * Method ini digunakan untuk mengembalikan nilai tanggal.
@@ -68,10 +70,19 @@ public class Invoice
     {
         return this.jobseeker;
     }
+    
+    public abstract PaymentType getPaymentType();
+
+    
+    public InvoiceStatus getInvoiceStatus()
+    {
+        return this.invoiceStatus;
+    }
     /**
     * Method ini digunakan untuk memberikan nilai untuk id
     * @param id
     */
+   
     public void setId(int id)
     {
          this.id=id;   
@@ -80,9 +91,9 @@ public class Invoice
     * Method ini digunakan untuk memberikan nilai untuk job id.
     * @param idJob
     */
-    public void setIdJobs(int idJob)
+    public void setJob(Job job)
     {
-        this.idJob=idJob;
+        this.job=job;
     }
     /**
     * Method ini digunakan untuk memberikan nilai untuk tanggal.
@@ -96,10 +107,8 @@ public class Invoice
     * Method ini digunakan untuk memberikan nilai untuk fee/bayaran.
     * @param fee
     */
-    public void setTotalFee(int totalFee)
-    {
-        this.totalFee=totalFee;
-    }
+    public abstract void setTotalFee();
+    
     /**
     * Method ini digunakan untuk memberikan nilai untuk class jobseeker.
     * @param jobseeker
@@ -108,13 +117,26 @@ public class Invoice
     {
         this.jobseeker=jobseeker;
     }
+
+    
+    public void setInvoiceStatus(InvoiceStatus status)
+    {
+        this.invoiceStatus=invoiceStatus;
+    }
     /**
     * Method ini digunakan untuk menampilkan data, tetapi method ini 
     * belum dilengkapi
     */
-    public void printData()
-    {
-        System.out.println(totalFee);
-    }
+    public abstract void printData();
+    
+        /**System.out.println("============= INVOICE============");
+        System.out.println("ID: " + id);
+        System.out.println("Job: " + job);
+        System.out.println("Date: " + date);
+        System.out.println("Seeker: " + jobseeker.getName());
+        System.out.println("Fee: " + totalFee);
+        System.out.println("Status: " + invoiceStatus);
+        */
+    
     
 }

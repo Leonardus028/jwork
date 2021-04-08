@@ -12,13 +12,13 @@ public class Job
     private String name;
     private Recruiter recruiter;
     private int fee;
-    private String category;
+    private JobCategory category;
     
 
     /**
      * Constructor untuk objects dari class Job
      */
-    public Job(int id, String name,Recruiter recruiter, int fee, String category)
+    public Job(int id, String name,Recruiter recruiter, int fee, JobCategory category)
     {
         this.id=id; 
         this.name=name;
@@ -57,7 +57,7 @@ public class Job
     * Method ini digunakan untuk mengembalikan nilai kategori.
     * @return category
     */
-    public String getCategory()
+    public JobCategory getCategory()
     {
         return this.category;
     }
@@ -65,7 +65,7 @@ public class Job
     * Method ini digunakan untuk mengembalikan nilai perekru.
     * @return recruiter
     */
-    public Recruiter recruiter()
+    public Recruiter getRecruiter()
     {
         return this.recruiter;
     }
@@ -105,7 +105,7 @@ public class Job
     * Method ini digunakan untuk memberikan nilai category.
     * @param category
     */
-    public void setCategory(String category)
+    public void setCategory(JobCategory category)
     {
         this.category=category;
     }
@@ -113,8 +113,9 @@ public class Job
     * Method ini digunakan untuk menampilkan data, tetapi method ini 
     * belum dilengkapi
     */
-    public void printData() 
+    public String toString() 
     {
-        System.out.println(name);
+        return "Id = " + getId() + "\nName = " + getName() + "\nRecruiter = " + getRecruiter() + "\nCity= "
+                + getRecruiter().getLocation().getCity() + "\nFee = " + getFee() + "\nCategory = " + getCategory();
     }
 }

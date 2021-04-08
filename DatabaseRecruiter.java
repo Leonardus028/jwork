@@ -1,29 +1,24 @@
 
 /**
  * Class Location berfungsi untuk menangani objek yang berkaitan dengan 
- * database pekerkaan, yang berisi list job
+ * database pekerkaan, yang berisi list recruiter
  * @author Leonardus Kevin
  * @version 18-3-2021
  */
 public class DatabaseRecruiter
 {
-    private String[] listRecruiter;
-    public DatabaseRecruiter(){
-       listRecruiter = new String[100];
-    }
-    public DatabaseRecruiter(String[] listRecruiter){
-        this.listRecruiter = listRecruiter;
-    }
-    public boolean addRecruiter(Recruiter recruiter){
+    private static String[] listRecruiter;
+
+    public static boolean addRecruiter(Recruiter recruiter){
         return false;
     }
-    public boolean removeRecruiter(Recruiter recruiter){
+    public static boolean removeRecruiter(Recruiter recruiter){
         return false;
     }
-    public Recruiter getRecruiter(){
+    public static Recruiter getRecruiter(){
         return null;
     }
-    public String[] getListRecruiter(){
+    public static String[] getListRecruiter(){
         return listRecruiter;
     }
 }

@@ -78,8 +78,7 @@ public class Location
     /**
     * Method ini digunakan untuk menampilkan nilai dari provinsi
     */
-    public void printData()
-    {
-        System.out.println(province);
+    public String toString() {
+        return "Province = " + getProvince() + "\nCity = " + getCity() + "\nDescription = " + getDescription();
     }
 }

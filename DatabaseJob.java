@@ -3,27 +3,21 @@
  * Class Location berfungsi untuk menangani objek yang berkaitan dengan 
  * database pekerkaan, yang berisi list job
  * @author Leonardus Kevin
- * @version 18-3-2021
+ * @version 25.3.2021
  */
-public class DatabaseJob
-{
-    private String[] listJob;
-    public DatabaseJob(){
-       listJob = new String[100];
-    }
-    public DatabaseJob(String[] listJob){
-        this.listJob = listJob;
-    }
-    public boolean addJob(Job job){
+public class DatabaseJob {
+    private static String[] listJob;
+    public static boolean addJob(Job job){
         return false;
     }
-    public boolean removeJob(Job job){
+
+    public static boolean removeJob(Job job){
         return false;
     }
-    public Job getJob(){
+    public static Job getJob(){
         return null;
     }
-    public String[] getListJob(){
+    public static String[] getListJob(){
         return listJob;
     }
 }
