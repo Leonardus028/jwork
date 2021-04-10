@@ -1,3 +1,7 @@
+import java.util.Calendar;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.util.GregorianCalendar;
 
 /**
  * Class Jobseeker berfungsi untuk menangani objek yang berkaitan dengan 
@@ -11,7 +15,7 @@ public abstract class Invoice
     // instance variables - replace the example below with your own
     public int id;
     private Job job;
-    private String date;
+    private Calendar date;
     protected int totalFee;
     private Jobseeker jobseeker;
     private InvoiceStatus invoiceStatus;
@@ -20,11 +24,10 @@ public abstract class Invoice
     /**
      * Constructor untuk objects dari class Invoice
      */
-    public Invoice(int id, Job job, String date, Jobseeker jobseeker, InvoiceStatus invoiceStatus)
+    public Invoice(int id, Job job, Jobseeker jobseeker, InvoiceStatus invoiceStatus)
     {
        this.id=id;
        this.job=job;
-       this.date=date;
        this.jobseeker=jobseeker;
        this.invoiceStatus=invoiceStatus;
     
@@ -49,7 +52,7 @@ public abstract class Invoice
     * Method ini digunakan untuk mengembalikan nilai tanggal.
     * @return date
     */
-    public String getDate()
+    public Calendar getDate()
     {
         return this.date;
     }
@@ -99,9 +102,14 @@ public abstract class Invoice
     * Method ini digunakan untuk memberikan nilai untuk tanggal.
     * @param date
     */
-    public void setDate(String date)
+    public void setDate(Calendar date)
     {
         this.date=date;
+    }
+    
+    public void setDate(int year, int month, int dayOfMonth)
+    {
+        this.date = new GregorianCalendar(year, (month-1), dayOfMonth);
     }
     /**
     * Method ini digunakan untuk memberikan nilai untuk fee/bayaran.
@@ -127,16 +135,13 @@ public abstract class Invoice
     * Method ini digunakan untuk menampilkan data, tetapi method ini 
     * belum dilengkapi
     */
-    public abstract void printData();
-    
-        /**System.out.println("============= INVOICE============");
-        System.out.println("ID: " + id);
-        System.out.println("Job: " + job);
-        System.out.println("Date: " + date);
-        System.out.println("Seeker: " + jobseeker.getName());
-        System.out.println("Fee: " + totalFee);
-        System.out.println("Status: " + invoiceStatus);
-        */
-    
-    
+    public String toString() {
+    if (this.date == null) {
+            return "Id = " + getId() + "\nJob = " + getJob() + "\nJobseeker = " + getJobseeker() + "\nInvoice Status= "+ getInvoiceStatus();
+        } else {
+            SimpleDateFormat formattedDate = new SimpleDateFormat("dd-MMMM-yyyy");
+            String date = formattedDate.format(getDate().getTime());
+            return "Id = " + getId() + "\nJob = " + getJob() + "\nJobseeker = " + getJobseeker() + "\nInvoice Status= "+ getInvoiceStatus() + "\n";
+        }
+    }
 }

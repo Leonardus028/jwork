@@ -29,15 +29,16 @@ public class JWork
         Jobseeker jobseeker1 = new Jobseeker(1, "Hansaka Wijaya", ".hansaka.wijaya@ui.ac.id", "password", new GregorianCalendar(2021, 4, 8));
         Jobseeker jobseeker2 = new Jobseeker(2, "Hansaka Wijaya", "hansaka.wijaya@ui.ac.id", "Password1", 2021,5,9);
         Jobseeker jobseeker3 = new Jobseeker(3, "Hansaka Wijaya", "hansaka.wijaya@ui.ac.id", "Password1");
+        Bonus bonus1 = new Bonus (10, "CODE01", 20000, 20001, true);
+        EwalletPayment invoice1 = new EwalletPayment(1, job1, jobseeker2,InvoiceStatus.OnGoing);
+        BankPayment invoice2 = new BankPayment (4, job1, jobseeker2, InvoiceStatus.Finished);
         
+        invoice1.setTotalFee();
+        invoice2.setTotalFee();
         
-        System.out.println(jobseeker1);
-        System.out.println(jobseeker2);
-        System.out.println(jobseeker3); 
-        
-        jobseeker1.setEmail("hansaka.wijaya@email.ui.ac.id");
-        jobseeker1.setPassword("Password1");
-        System.out.println(jobseeker1);
+        System.out.println(invoice1);
+        System.out.println(invoice2);
+    
         /**
         Bonus bonus1 = new Bonus (10, "CODE01", 20000, 20001, true);
         Bonus bonus2 = new Bonus (20, "CODE02", 20000, 18000, true);
