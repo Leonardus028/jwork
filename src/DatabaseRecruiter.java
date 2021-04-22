@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 /**
  * Class Location berfungsi untuk menangani objek yang berkaitan dengan 
@@ -7,18 +8,44 @@
  */
 public class DatabaseRecruiter
 {
+    public static ArrayList<Recruiter> RECRUITER_DATABASE= new ArrayList<Recruiter>();
+    public static int lastId = 0;
     private static String[] listRecruiter;
 
-    public static boolean addRecruiter(Recruiter recruiter){
-        return false;
+
+    public static ArrayList<Recruiter> getRecruiterDatabase(){
+        return RECRUITER_DATABASE;
     }
-    public static boolean removeRecruiter(Recruiter recruiter){
-        return false;
+    public static int getLastId(){
+        return lastId;
     }
-    public static Recruiter getRecruiter(){
+
+    public static Recruiter getRecruiterById(int id){
+        for(int i = 0; i < RECRUITER_DATABASE.size()-1; i++){
+            if(RECRUITER_DATABASE.get(i).getId() == id){
+                return RECRUITER_DATABASE.get(i);
+            }else{
+                return null;
+            }
+        }
         return null;
     }
-    public static String[] getListRecruiter(){
-        return listRecruiter;
+
+    public static boolean addRecruiter(Recruiter recruiter){
+        RECRUITER_DATABASE.add(recruiter);
+        lastId = recruiter.getId();
+        return true;
+    }
+
+    public static boolean removeRecruiter(int id){
+        for(int i = 0; i < RECRUITER_DATABASE.size(); i++){
+            if(RECRUITER_DATABASE.get(i).getId() == id){
+                RECRUITER_DATABASE.remove(i);
+                return true;
+            }else{
+                return false;
+            }
+        }
+        return false;
     }
 }

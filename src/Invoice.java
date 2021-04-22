@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.text.SimpleDateFormat;
@@ -14,7 +15,7 @@ public abstract class Invoice
 {
     // instance variables - replace the example below with your own
     public int id;
-    private Job job;
+    private ArrayList<Job> jobs;
     private Calendar date;
     protected int totalFee;
     private Jobseeker jobseeker;
@@ -24,13 +25,12 @@ public abstract class Invoice
     /**
      * Constructor untuk objects dari class Invoice
      */
-    public Invoice(int id, Job job, Jobseeker jobseeker, InvoiceStatus invoiceStatus)
+    public Invoice(int id, ArrayList<Job> jobs, Jobseeker jobseeker)
     {
        this.id=id;
-       this.job=job;
+       this.jobs=jobs;
        this.date = Calendar.getInstance();
        this.jobseeker=jobseeker;
-       this.invoiceStatus=invoiceStatus;
     
     }
     /**
@@ -45,9 +45,9 @@ public abstract class Invoice
     * Method ini digunakan untuk mengembalikan nilai job.
     * @return idJob
     */
-    public Job getJob()
+    public ArrayList<Job> getJobs()
     {
-        return this.job;
+        return this.jobs;
     }
     /**
     * Method ini digunakan untuk mengembalikan nilai tanggal.
@@ -80,7 +80,8 @@ public abstract class Invoice
     
     public InvoiceStatus getInvoiceStatus()
     {
-        return this.invoiceStatus;
+
+        return this.invoiceStatus.OnGoing;
     }
     /**
     * Method ini digunakan untuk memberikan nilai untuk id
@@ -93,11 +94,12 @@ public abstract class Invoice
     }
     /**
     * Method ini digunakan untuk memberikan nilai untuk job id.
-    * @param idJob
+    * @param id
     */
-    public void setJob(Job job)
+    public void setJobs(ArrayList<Job>  jobs)
     {
-        this.job=job;
+
+        this.jobs=jobs;
     }
     /**
     * Method ini digunakan untuk memberikan nilai untuk tanggal.
@@ -105,6 +107,7 @@ public abstract class Invoice
     */
     public void setDate(Calendar date)
     {
+
         this.date=date;
     }
     
@@ -114,7 +117,7 @@ public abstract class Invoice
     }
     /**
     * Method ini digunakan untuk memberikan nilai untuk fee/bayaran.
-    * @param fee
+
     */
     public abstract void setTotalFee();
     
@@ -130,7 +133,8 @@ public abstract class Invoice
     
     public void setInvoiceStatus(InvoiceStatus status)
     {
-        this.invoiceStatus=invoiceStatus;
+
+        this.invoiceStatus=invoiceStatus.OnGoing;
     }
     /**
     * Method ini digunakan untuk menampilkan data, tetapi method ini 

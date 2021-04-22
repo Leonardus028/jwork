@@ -21,9 +21,31 @@ public class JWork
 
     public static void main(String[] args)
     {
-        
-        
-        Location location1 = new Location("Jawa Barat", "Sukabumi", "Dingin");
+
+
+        Location location1 = new Location("Jawa Barat", "Sukabumi", "Tempat Lahir");
+        DatabaseRecruiter.addRecruiter(new Recruiter(DatabaseRecruiter.getLastId() + 1, "Leonardus",
+                "leonardus.kevin@gmail.com", "081384265050", location1));
+        DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId() + 1, "Leonardus",
+                "leonardus@ui.ac.id", "Password123", 2021, 04, 22));
+        DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId() + 1, "Leonardus",
+                "leonardus@ui.ac.id", "Password123", 2021, 04, 23));
+        DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId() + 1, "Hansaka",
+                "hansaka@ui.ac.id", "Wijaya123", 2021, 03, 6));
+
+        System.out.println("\n=====================Jobseeker Database====================\n");
+        System.out.println(DatabaseJobseeker.getDatabaseJobseeker());
+        DatabaseJob.addJob(new Job(1, "Backend Engineer BukaLapak", DatabaseRecruiter.getRecruiterById(1),
+                10000, JobCategory.BackEnd));
+        DatabaseJob.addJob(new Job(1, "Data Analyst Tokopedia", DatabaseRecruiter.getRecruiterById(1), 20000,
+                JobCategory.DataAnalyst));
+        DatabaseJob.addJob(new Job(1, "Data Scientist Shopee", DatabaseRecruiter.getRecruiterById(1), 10000,
+                JobCategory.DataAnalyst));
+
+        System.out.println("\n=====================Job Database By Category====================\n");
+        System.out.println(DatabaseJob.getJobByCategory(JobCategory.BackEnd));
+        System.out.println(DatabaseJob.getJobByCategory(JobCategory.DataAnalyst));
+        /**
         Recruiter recruiter1 = new Recruiter(1, "Leonardus Kevin", "leonardus.kevin@ui.ac.id", "081384265050", location1);
         Job job1 = new Job (1, "Data Engineer", recruiter1, 20000, JobCategory.BackEnd);
         Jobseeker jobseeker1 = new Jobseeker(1, "Hansaka Wijaya", ".hansaka.wijaya@ui.ac.id", "password", new GregorianCalendar(2021, 4, 8));

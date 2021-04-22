@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 /**
  * Class Location berfungsi untuk menangani objek yang berkaitan dengan 
@@ -6,18 +7,66 @@
  * @version 25.3.2021
  */
 public class DatabaseJob {
+    public static ArrayList<Job> JOB_DATABASE= new ArrayList<Job>();
+    public static int lastId = 0;
     private static String[] listJob;
+
+    public static ArrayList<Job> getJobDatabase(){
+        return JOB_DATABASE;
+    }
+    public static int getLastId(){
+        return lastId;
+    }
+
+    public static Job getJobById(int id){
+        for(int i = 0; i < JOB_DATABASE.size()-1; i++){
+            if(JOB_DATABASE.get(i).getId() == id){
+                return JOB_DATABASE.get(i);
+            }else{
+                return null;
+            }
+        }
+        return null;
+    }
+
+    public static ArrayList<Job> getJobByRecruiter(int recruiterId){
+        ArrayList<Job> temp = new ArrayList<Job>();
+        for (int i = 0; i < JOB_DATABASE.size(); i++) {
+            if (recruiterId == JOB_DATABASE.get(i).getRecruiter().getId()) {
+                temp.add(JOB_DATABASE.get(i));
+            } else {
+                return null;
+            }
+        }
+        return temp;
+
+    }
+
+    public static ArrayList<Job> getJobByCategory(JobCategory category) {
+        ArrayList<Job> dummy = new ArrayList<Job>();
+        for(int i = 0; i < JOB_DATABASE.size(); i++) {
+            if(JOB_DATABASE.get(i).getCategory() == category) {
+                dummy.add(JOB_DATABASE.get(i));
+            }
+        }
+        return dummy;
+    }
+
+
+
     public static boolean addJob(Job job){
-        return false;
+        JOB_DATABASE.add(job);
+        lastId = job.getId();
+        return true;
     }
 
     public static boolean removeJob(Job job){
+        for (Job jobs : JOB_DATABASE) {
+            if (job.getId() == jobs.getId()) {
+                JOB_DATABASE.remove(job);
+                return true;
+            }
+        }
         return false;
-    }
-    public static Job getJob(){
-        return null;
-    }
-    public static String[] getListJob(){
-        return listJob;
     }
 }

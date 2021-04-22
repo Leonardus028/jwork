@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 /**
  * Class Location berfungsi untuk menangani objek yang berkaitan dengan 
@@ -7,19 +8,51 @@
  */
 public class DatabaseJobseeker
 {
+    public static ArrayList<Jobseeker> JOBSEEKER_DATABASE = new ArrayList<Jobseeker>();;
+    public static int lastId = 0;
     private static String[] listJobseeker;
 
-    public static boolean addJobseeker(Jobseeker jobseeker){
-        return false;
+    public static ArrayList<Jobseeker> getDatabaseJobseeker(){
+        return JOBSEEKER_DATABASE;
     }
-    public static boolean removeJobseeker(Jobseeker jobseeker){
-        return false;
+
+    public static int getLastId(){
+        return lastId;
     }
-    public static Jobseeker getJobseeker(){
+
+    public static Jobseeker getJobseekerById(int id){
+        for(int i = 0; i < JOBSEEKER_DATABASE.size()-1; i++){
+            if(JOBSEEKER_DATABASE.get(i).getId() == id){
+                return JOBSEEKER_DATABASE.get(i);
+            }else{
+                return null;
+            }
+        }
         return null;
     }
-    public static String[] getListJobseeker(){
-        return listJobseeker;
+
+    public static boolean addJobseeker(Jobseeker jobseeker){
+        for(int i=0; i < JOBSEEKER_DATABASE.size(); i++){
+            if(JOBSEEKER_DATABASE.get(i).getEmail() == jobseeker.getEmail()){
+                return false;
+            }
+        }
+        JOBSEEKER_DATABASE.add(jobseeker);
+        lastId = jobseeker.getId();
+        return true;
     }
+    public static boolean removeJobseeker(int id){
+        for(int i = 0; i < JOBSEEKER_DATABASE.size(); i++){
+            if(JOBSEEKER_DATABASE.get(i).getId() == id){
+                JOBSEEKER_DATABASE.remove(i);
+                return true;
+            }else{
+                return false;
+            }
+        }
+        return false;
+    }
+
+
 }
 
