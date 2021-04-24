@@ -19,26 +19,23 @@ public class DatabaseJob {
     }
 
     public static Job getJobById(int id){
-        for(int i = 0; i < JOB_DATABASE.size()-1; i++){
-            if(JOB_DATABASE.get(i).getId() == id){
-                return JOB_DATABASE.get(i);
-            }else{
-                return null;
+        Job dummy = null;
+        for(int i = 0; i < JOB_DATABASE.size(); i++) {
+            if(JOB_DATABASE.get(i).getId() == id) {
+                dummy = JOB_DATABASE.get(i);
             }
         }
-        return null;
+        return dummy;
     }
 
     public static ArrayList<Job> getJobByRecruiter(int recruiterId){
-        ArrayList<Job> temp = new ArrayList<Job>();
-        for (int i = 0; i < JOB_DATABASE.size(); i++) {
-            if (recruiterId == JOB_DATABASE.get(i).getRecruiter().getId()) {
-                temp.add(JOB_DATABASE.get(i));
-            } else {
-                return null;
+        ArrayList<Job> dummy = new ArrayList<Job>();
+        for(int i = 0; i < JOB_DATABASE.size(); i++) {
+            if(JOB_DATABASE.get(i).getRecruiter().getId() == recruiterId) {
+                dummy.add(JOB_DATABASE.get(i));
             }
         }
-        return temp;
+        return dummy;
 
     }
 

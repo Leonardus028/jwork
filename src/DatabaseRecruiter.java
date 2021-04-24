@@ -21,11 +21,9 @@ public class DatabaseRecruiter
     }
 
     public static Recruiter getRecruiterById(int id){
-        for(int i = 0; i < RECRUITER_DATABASE.size()-1; i++){
-            if(RECRUITER_DATABASE.get(i).getId() == id){
+        for(int i = 0; i < RECRUITER_DATABASE.size(); i++) {
+            if(RECRUITER_DATABASE.get(i).getId() == id) {
                 return RECRUITER_DATABASE.get(i);
-            }else{
-                return null;
             }
         }
         return null;

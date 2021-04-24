@@ -21,19 +21,19 @@ public class DatabaseJobseeker
     }
 
     public static Jobseeker getJobseekerById(int id){
-        for(int i = 0; i < JOBSEEKER_DATABASE.size()-1; i++){
-            if(JOBSEEKER_DATABASE.get(i).getId() == id){
-                return JOBSEEKER_DATABASE.get(i);
-            }else{
-                return null;
+        Jobseeker dummy = null;
+        for(int i = 0; i < JOBSEEKER_DATABASE.size(); i++) {
+            if(JOBSEEKER_DATABASE.get(i).getId() == id) {
+                dummy = JOBSEEKER_DATABASE.get(i);
             }
         }
-        return null;
+        return dummy;
+
     }
 
     public static boolean addJobseeker(Jobseeker jobseeker){
-        for(int i=0; i < JOBSEEKER_DATABASE.size(); i++){
-            if(JOBSEEKER_DATABASE.get(i).getEmail() == jobseeker.getEmail()){
+        for(int i = 0; i < JOBSEEKER_DATABASE.size(); i++) {
+            if(JOBSEEKER_DATABASE.get(i).getEmail() == jobseeker.getEmail()) {
                 return false;
             }
         }
@@ -42,12 +42,10 @@ public class DatabaseJobseeker
         return true;
     }
     public static boolean removeJobseeker(int id){
-        for(int i = 0; i < JOBSEEKER_DATABASE.size(); i++){
-            if(JOBSEEKER_DATABASE.get(i).getId() == id){
+        for(int i = 0; i < JOBSEEKER_DATABASE.size(); i++) {
+            if(JOBSEEKER_DATABASE.get(i).getId() == id) {
                 JOBSEEKER_DATABASE.remove(i);
                 return true;
-            }else{
-                return false;
             }
         }
         return false;

@@ -131,10 +131,9 @@ public abstract class Invoice
     }
 
     
-    public void setInvoiceStatus(InvoiceStatus status)
+    public void setInvoiceStatus(InvoiceStatus invoiceStatus)
     {
-
-        this.invoiceStatus=invoiceStatus.OnGoing;
+        this.invoiceStatus=invoiceStatus;
     }
     /**
     * Method ini digunakan untuk menampilkan data, tetapi method ini 

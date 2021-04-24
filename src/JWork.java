@@ -35,16 +35,25 @@ public class JWork
 
         System.out.println("\n=====================Jobseeker Database====================\n");
         System.out.println(DatabaseJobseeker.getDatabaseJobseeker());
-        DatabaseJob.addJob(new Job(1, "Backend Engineer BukaLapak", DatabaseRecruiter.getRecruiterById(1),
+        DatabaseJob.addJob(new Job(1, "Backend Engineer", DatabaseRecruiter.getRecruiterById(1),
                 10000, JobCategory.BackEnd));
-        DatabaseJob.addJob(new Job(1, "Data Analyst Tokopedia", DatabaseRecruiter.getRecruiterById(1), 20000,
+        DatabaseJob.addJob(new Job(2, "Data Analyst", DatabaseRecruiter.getRecruiterById(1), 20000,
                 JobCategory.DataAnalyst));
-        DatabaseJob.addJob(new Job(1, "Data Scientist Shopee", DatabaseRecruiter.getRecruiterById(1), 10000,
+        DatabaseJob.addJob(new Job(3, "Data Scientist", DatabaseRecruiter.getRecruiterById(1), 10000,
                 JobCategory.DataAnalyst));
 
         System.out.println("\n=====================Job Database By Category====================\n");
         System.out.println(DatabaseJob.getJobByCategory(JobCategory.BackEnd));
         System.out.println(DatabaseJob.getJobByCategory(JobCategory.DataAnalyst));
+
+        DatabaseBonus.addBonus(new Bonus(DatabaseBonus.getLastId()+1,"Bonus1",10000,5000,false));
+        DatabaseBonus.addBonus(new Bonus(DatabaseBonus.getLastId()+1,"Bonus1",10000,5000,false));
+        System.out.println(DatabaseBonus.getBonusDatabase());
+        
+
+
+
+
         /**
         Recruiter recruiter1 = new Recruiter(1, "Leonardus Kevin", "leonardus.kevin@ui.ac.id", "081384265050", location1);
         Job job1 = new Job (1, "Data Engineer", recruiter1, 20000, JobCategory.BackEnd);
