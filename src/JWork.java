@@ -94,13 +94,19 @@ public class JWork
         try {
             DatabaseInvoice.addInvoice(new EwalletPayment(1, myJob, DatabaseJobseeker.getJobseekerById(1)));
         } catch (JobSeekerNotFoundException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
 
         try {
-            DatabaseInvoice.addInvoice(new EwalletPayment(2, myJob1, DatabaseJobseeker.getJobseekerById(1)));
+            DatabaseInvoice.addInvoice(new EwalletPayment(2, myJob, DatabaseJobseeker.getJobseekerById(2)));
         } catch (JobSeekerNotFoundException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            DatabaseInvoice.addInvoice(new EwalletPayment(3, myJob1, DatabaseJobseeker.getJobseekerById(3)));
+        } catch (JobSeekerNotFoundException e) {
+            System.out.println(e.getMessage());
         }
 
         for (Invoice invoice : DatabaseInvoice.getInvoiceDatabase()){
