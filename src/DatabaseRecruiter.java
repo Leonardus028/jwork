@@ -20,13 +20,20 @@ public class DatabaseRecruiter
         return lastId;
     }
 
-    public static Recruiter getRecruiterById(int id){
-        for(int i = 0; i < RECRUITER_DATABASE.size(); i++) {
-            if(RECRUITER_DATABASE.get(i).getId() == id) {
-                return RECRUITER_DATABASE.get(i);
+    public static Recruiter getRecruiterById(int id) throws RecruiterNotFoundException {
+        Recruiter temp = null;
+        try{
+            for (int i = 0; i < RECRUITER_DATABASE.size(); i++) {
+                if (id == RECRUITER_DATABASE.get(i).getId()) {
+                    temp = RECRUITER_DATABASE.get(i);
+                    return temp;
+                }
             }
+        } catch (Exception e){
+            throw new RecruiterNotFoundException(id);
         }
-        return null;
+
+        throw new RecruiterNotFoundException(id);
     }
 
     public static boolean addRecruiter(Recruiter recruiter){
@@ -35,15 +42,21 @@ public class DatabaseRecruiter
         return true;
     }
 
-    public static boolean removeRecruiter(int id){
-        for(int i = 0; i < RECRUITER_DATABASE.size(); i++){
-            if(RECRUITER_DATABASE.get(i).getId() == id){
-                RECRUITER_DATABASE.remove(i);
-                return true;
-            }else{
-                return false;
+    public static boolean removeRecruiter(int id) throws RecruiterNotFoundException {
+        boolean temp = true;
+        try{
+            for (Recruiter recruiter: RECRUITER_DATABASE) {
+                if (id == recruiter.getId()){
+                    RECRUITER_DATABASE.remove(id);
+                    temp = true;
+                }
+                else{
+                    temp = false;
+                }
             }
+        } catch (Exception e){
+            throw new RecruiterNotFoundException(id);
         }
-        return false;
+        throw new RecruiterNotFoundException(id);
     }
 }

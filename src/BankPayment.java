@@ -54,16 +54,27 @@ public class BankPayment extends Invoice
     public String toString() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMMM-yyyy");
         String date = dateFormat.format(getDate().getTime());
-        String res = "";
-        for (Job job : getJobs()) {
-            if (adminFee != 0) {
-                res.concat("\nId = " + getId() + "\nJob = " + job.getName() + "\nDate = " + date + "\nJob Seeker = "
-                        + getJobseeker().getName() + "\nAdmin Fee = " + adminFee + "\nTotal Fee = " + getTotalFee() + "\nStatus = " + getInvoiceStatus() + "\nPayment = " + PAYMENT_TYPE);
-            } else {
-                res.concat("\nId = " + getId() + "\nJob = " + job.getName() + "\nDate = " + date + "\nJob Seeker = "
-                        + getJobseeker().getName() + "\nTotal Fee = " + getTotalFee() + "\nStatus = " + getInvoiceStatus() + "\nPayment = " + PAYMENT_TYPE);
+
+        for(int i =0; i<getJobs().size(); i++){
+            if (adminFee !=0){
+                return "ID\t\t" + getId() +
+                        "\nJob\t\t" + getJobs().get(i).getName() +
+                        "\nDate\t\t" + date +
+                        "\nJobseeker\t" + getJobseeker().getName() +
+                        "\nAdmin Fee\t" + adminFee +
+                        "\nTotal Fee\t" + super.totalFee +
+                        "\nStatus\t\t" + getInvoiceStatus() +
+                        "\nPayment Type\t" + PAYMENT_TYPE + "\n";
+            }else{
+                return "ID\t\t" + getId() +
+                        "\nJob\t\t" + getJobs().get(i).getName() +
+                        "\nDate\t\t" + date +
+                        "\nJobseeker\t" + getJobseeker().getName() +
+                        "\nTotal Fee\t" + super.totalFee +
+                        "\nStatus\t\t" + getInvoiceStatus() +
+                        "\nPayment Type\t" + PAYMENT_TYPE + "\n";
             }
         }
-        return res;
+        return null;
     }
 }

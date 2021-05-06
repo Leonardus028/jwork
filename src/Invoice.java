@@ -19,7 +19,7 @@ public abstract class Invoice
     private Calendar date;
     protected int totalFee;
     private Jobseeker jobseeker;
-    private InvoiceStatus invoiceStatus;
+    private InvoiceStatus invoiceStatus = InvoiceStatus.OnGoing;
     
 
     /**
@@ -81,7 +81,7 @@ public abstract class Invoice
     public InvoiceStatus getInvoiceStatus()
     {
 
-        return this.invoiceStatus.OnGoing;
+        return this.invoiceStatus;
     }
     /**
     * Method ini digunakan untuk memberikan nilai untuk id
@@ -130,10 +130,9 @@ public abstract class Invoice
         this.jobseeker=jobseeker;
     }
 
-    
-    public void setInvoiceStatus(InvoiceStatus invoiceStatus)
-    {
-        this.invoiceStatus=invoiceStatus;
+
+    public void setInvoiceStatus(InvoiceStatus invoiceStatus) {
+        this.invoiceStatus = invoiceStatus;
     }
     /**
     * Method ini digunakan untuk menampilkan data, tetapi method ini 

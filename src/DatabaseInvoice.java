@@ -25,18 +25,21 @@ public class DatabaseInvoice {
         for (Invoice invoice : INVOICE_DATABASE) {
             if (id == invoice.getId()) {
                 temp = invoice;
+            } else {
+                temp = null;
             }
         }
         return temp;
     }
 
     public static ArrayList<Invoice> getInvoiceByJobSeeker(int jobseekerId){
-        ArrayList<Invoice> temp = new ArrayList<Invoice>();
+        ArrayList<Invoice> temp = null;
         for (Invoice invoice : INVOICE_DATABASE) {
             if (jobseekerId == invoice.getJobseeker().getId()) {
+                if (temp == null) {
+                    temp = new ArrayList<Invoice>();
+                }
                 temp.add(invoice);
-            } else {
-                return null;
             }
         }
         return temp;

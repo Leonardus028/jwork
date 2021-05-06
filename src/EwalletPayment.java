@@ -56,21 +56,31 @@ public class EwalletPayment extends Invoice
 
     @Override
     public String toString() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMMM-yyyy");
-        String date = dateFormat.format(getDate().getTime());
-        String res = "";
-        for (Job job : getJobs()) {
-            if ((bonus != null) && (bonus.getActive() == true) && (job.getFee() > bonus.getMinTotalFee())) {
-                res.concat("\nId = " + getId() + "\nJob = " + job.getName() + "\nDate = " + date + "\nJob Seeker = "
-                        + getJobseeker().getName() + "\nReferral Code = " + bonus.getReferralCode() + "\nTotal Fee = "
-                        + getTotalFee() + "\nStatus = " + getInvoiceStatus() + "\nPayment = " + PAYMENT_TYPE);
-            } else {
-                res.concat("\nId = " + getId() + "\nJob = " + job.getName() + "\nDate = " + date + "\nJob Seeker = "
-                        + getJobseeker().getName() + bonus.getReferralCode() + "\nTotal Fee = "
-                        + getTotalFee() + "\nStatus = " + getInvoiceStatus() + "\nPayment = " + PAYMENT_TYPE);
-            }
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMMM yyyy");
 
+        String date = dateFormat.format(getDate().getTime());
+
+        for(int i = 0; i < getJobs().size(); ++i) {
+            if ((bonus != null) && bonus.getActive() && totalFee > bonus.getMinTotalFee()) {
+                setTotalFee();
+                return "ID\t\t= " + getId() +
+                        "\nJob\t\t= " + getJobs().get(i).getName() +
+                        "\nDate\t\t= " + date +
+                        "\nJobseeker\t= " + getJobseeker().getName() +
+                        "\nReferral Code\t= " + bonus.getReferralCode() +
+                        "\nTotal Fee\t= " + super.totalFee +
+                        "\nStatus\t\t= " + getInvoiceStatus() +
+                        "\nPayment Type\t= " + PAYMENT_TYPE + "\n";
+            } else {
+                return "ID\t\t= " + getId() +
+                        "\nJob\t\t= " + getJobs().get(i).getName() +
+                        "\nDate\t\t= " + date +
+                        "\nJobseeker\t= " + getJobseeker().getName() +
+                        "\nTotal Fee\t= " + super.totalFee +
+                        "\nStatus\t\t= " + getInvoiceStatus() +
+                        "\nPayment Type\t= " + PAYMENT_TYPE + "\n";
+            }
         }
-        return res;
+        return null;
     }
 }

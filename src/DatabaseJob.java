@@ -18,14 +18,20 @@ public class DatabaseJob {
         return lastId;
     }
 
-    public static Job getJobById(int id){
-        Job dummy = null;
-        for(int i = 0; i < JOB_DATABASE.size(); i++) {
-            if(JOB_DATABASE.get(i).getId() == id) {
-                dummy = JOB_DATABASE.get(i);
+    public static Job getJobById(int id) throws JobNotFoundException {
+        Job temp = null;
+        try{
+            for (int i = 0; i < JOB_DATABASE.size(); i++) {
+                if (id == JOB_DATABASE.get(i).getId()) {
+                    temp = JOB_DATABASE.get(i);
+                    return temp;
+                }
             }
         }
-        return dummy;
+        catch (Exception exception){
+            throw new JobNotFoundException(id);
+        }
+        throw new JobNotFoundException(id);
     }
 
     public static ArrayList<Job> getJobByRecruiter(int recruiterId){
@@ -57,13 +63,18 @@ public class DatabaseJob {
         return true;
     }
 
-    public static boolean removeJob(Job job){
-        for (Job jobs : JOB_DATABASE) {
-            if (job.getId() == jobs.getId()) {
-                JOB_DATABASE.remove(job);
-                return true;
+    public static boolean removeJob(int id) throws JobNotFoundException {
+        try{
+            for (int i=0; i< JOB_DATABASE.size(); i++) {
+                if (JOB_DATABASE.get(i).getId() == id) {
+                    JOB_DATABASE.remove(i);
+                    return true;
+                }
             }
         }
-        return false;
+        catch (Exception exception){
+            throw new JobNotFoundException(id);
+        }
+        throw new JobNotFoundException(id);
     }
 }
