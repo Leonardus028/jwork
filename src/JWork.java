@@ -103,6 +103,10 @@ public class JWork
             e.printStackTrace();
         }
 
+        for (Invoice invoice : DatabaseInvoice.getInvoiceDatabase()){
+            new Thread(new FeeCalculator(invoice)).start();
+        }
+
 
 
 
