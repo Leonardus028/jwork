@@ -27,7 +27,6 @@ public class DatabaseInvoice {
             for (Invoice invoice : INVOICE_DATABASE) {
                 if (id == invoice.getId()) {
                     temp = invoice;
-                } else {
                     return temp;
                 }
             }

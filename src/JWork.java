@@ -113,6 +113,12 @@ public class JWork
             System.out.println(e.getMessage());
         }
 
+        try {
+            DatabaseInvoice.getInvoiceById(3);
+        } catch (InvoiceNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+
         System.out.println("\n===== Database Invoice =====");
         System.out.println(DatabaseInvoice.getInvoiceDatabase());
 
