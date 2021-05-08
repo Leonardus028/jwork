@@ -11,7 +11,7 @@ public class JWork
 {
     public static void main(String[] args) throws EmailAlreadyExistsException, ReferralCodeAlreadyExistsException, JobSeekerNotFoundException, JobNotFoundException,  RecruiterNotFoundException, BonusNotFoundException
     {
-        /** Tugas 8*/
+
         try {
             DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId() + 1, "Leonardus",
                     "leonardus@ui.ac.id", "Password123", 2021, 04, 22));
@@ -73,7 +73,7 @@ public class JWork
         System.out.println(DatabaseJobseeker.getDatabaseJobseeker());
 
 
-        /** Tugas 9*/
+
         Location location1 = new Location("Jawa Barat", "Sukabumi", "Tempat Lahir");
         DatabaseRecruiter.addRecruiter(new Recruiter(1, "Leonardus",
                 "leonardus.kevin@gmail.com", "081384265050", location1));
@@ -91,23 +91,30 @@ public class JWork
             e.printStackTrace();
         }
 
+
+        /**
+         * Pengujian Invoice Post Test (Melanjutkan Case Study)
+         */
         try {
             DatabaseInvoice.addInvoice(new EwalletPayment(1, myJob, DatabaseJobseeker.getJobseekerById(1)));
-        } catch (JobSeekerNotFoundException e) {
+        } catch (OngoingInvoiceAlreadyExistsException e) {
             System.out.println(e.getMessage());
         }
 
         try {
             DatabaseInvoice.addInvoice(new EwalletPayment(2, myJob, DatabaseJobseeker.getJobseekerById(2)));
-        } catch (JobSeekerNotFoundException e) {
+        } catch (OngoingInvoiceAlreadyExistsException e) {
             System.out.println(e.getMessage());
         }
 
         try {
             DatabaseInvoice.addInvoice(new EwalletPayment(3, myJob1, DatabaseJobseeker.getJobseekerById(3)));
-        } catch (JobSeekerNotFoundException e) {
+        } catch (OngoingInvoiceAlreadyExistsException e) {
             System.out.println(e.getMessage());
         }
+
+        System.out.println("\n===== Database Invoice =====");
+        System.out.println(DatabaseInvoice.getInvoiceDatabase());
 
         for (Invoice invoice : DatabaseInvoice.getInvoiceDatabase()){
             new Thread(new FeeCalculator(invoice)).start();
