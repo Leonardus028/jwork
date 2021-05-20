@@ -5,7 +5,7 @@ import java.util.ArrayList;
  * Class Location berfungsi untuk menangani objek yang berkaitan dengan 
  * database pekerkaan, yang berisi list jobseeker
  * @author Leonardus Kevin
- * @version 25.3.2021
+ * @version 20.5.2021
  */
 public class DatabaseJobseeker
 {
@@ -68,6 +68,14 @@ public class DatabaseJobseeker
         throw new JobSeekerNotFoundException(id);
     }
 
+    public static Jobseeker jobseekerLogin(String email, String password){
+        for (Jobseeker jobseeker : JOBSEEKER_DATABASE) {
+            if (jobseeker.getEmail().equals(email) && jobseeker.getPassword().equals(password)) {
+                return jobseeker;
+            }
+        }
+        return null;
+    }
 
 }
 
