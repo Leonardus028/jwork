@@ -74,19 +74,19 @@ public class DatabaseInvoice {
     }
 
 
-    public boolean removeInvoice(Invoice invoice, int id) throws InvoiceNotFoundException {
-        try {
-            for (Invoice invoice_1 : INVOICE_DATABASE) {
-                if (invoice.getId() == invoice_1.getId()) {
-                    INVOICE_DATABASE.remove(invoice);
-                    return true;
-                }
+    public static boolean removeInvoice(int id) throws InvoiceNotFoundException{
+        boolean temp = false;
+        for (Invoice invoice: INVOICE_DATABASE) {
+            if (id == invoice.getId()){
+                INVOICE_DATABASE.remove(id);
+                temp = true;
+                break;
             }
         }
-        catch (Exception exception){
+        if (!temp) {
             throw new InvoiceNotFoundException(id);
         }
-        throw new InvoiceNotFoundException(id);
+        return temp;
     }
 }
 
