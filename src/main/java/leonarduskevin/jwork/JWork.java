@@ -35,24 +35,8 @@ public class JWork {
             e.printStackTrace();
         }
 
-        try {
-            DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId() + 1, "Leonardus",
-                    "leonardus@ui.ac.id", "Password123", 2021, 04, 22));
-        }catch (EmailAlreadyExistsException exception){
-            System.out.println(exception.getMessage());
-        }
 
-        ArrayList<Job> myJob = new ArrayList<Job>();
-        try {
-            DatabaseInvoice.addInvoice(new EwalletPayment(1, myJob, DatabaseJobseeker.getJobseekerById(1)));
-        } catch (OngoingInvoiceAlreadyExistsException | JobSeekerNotFoundException e) {
-            System.out.println(e.getMessage());
-        }
-        try {
-            DatabaseInvoice.addInvoice(new EwalletPayment(2, myJob, DatabaseJobseeker.getJobseekerById(1)));
-        } catch (OngoingInvoiceAlreadyExistsException | JobSeekerNotFoundException e) {
-            System.out.println(e.getMessage());
-        }
+
         SpringApplication.run(JWork.class, args);
     }
 

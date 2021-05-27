@@ -2,16 +2,18 @@ package leonarduskevin.jwork.controller;
 
 import leonarduskevin.jwork.*;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+
 import static leonarduskevin.jwork.DatabaseJobseeker.jobseekerLogin;
 
 @RequestMapping("/jobseeker")
 @RestController
 public class JobseekerController {
 
-    @RequestMapping("")
-    public String indexPage(@RequestParam(value="name", defaultValue="world") String name) {
-        return "Hello " + name;
-    }
+    @RequestMapping(value = "", method = RequestMethod.GET)
+    public ArrayList<Jobseeker> getAllJob(){
+        return DatabaseJobseeker.getDatabaseJobseeker();}
 
     @RequestMapping("/{id}")
     public Jobseeker getJobseekerById(@PathVariable int id) {
