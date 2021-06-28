@@ -21,7 +21,9 @@ public class JWork {
         try {
             DatabaseJob.addJob(new Job(DatabaseJob.getLastId()+1, "Backend Engineer", DatabaseRecruiter.getRecruiterById(1), 10000, JobCategory.BackEnd));
             DatabaseJob.addJob(new Job(DatabaseJob.getLastId()+1, "Frontend Engineer", DatabaseRecruiter.getRecruiterById(1), 10000, JobCategory.FrontEnd));
+
         }
+
         catch(RecruiterNotFoundException e){
             e.printStackTrace();
         }

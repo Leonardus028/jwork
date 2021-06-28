@@ -1,8 +1,8 @@
 package leonarduskevin.jwork;
 /**
  * Class yang digunakan untuk menyimpan semua infromasi terkait object Bonus
- * @Leonardus Kevin
- * @27.06.2021
+ * @author Leonardus Kevin
+ * @version 27.06.2021
 */
 public class Bonus {
     private int id;

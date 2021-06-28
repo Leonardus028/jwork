@@ -3,7 +3,7 @@ package leonarduskevin.jwork;
  * Class Location berfungsi untuk menangani objek yang berkaitan dengan 
  * informasi pekerjaan, seperti id, nama, recruiter, fee yang diberikan dan kategory
  * @author Leonardus Kevin
- * @27.06.2021
+ * @version 27.06.2021
  */
 public class Job
 {

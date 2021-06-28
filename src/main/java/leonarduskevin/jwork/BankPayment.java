@@ -5,8 +5,8 @@ import java.util.ArrayList;
 /**
  * Merupakan SubClass dari Class Invoice, yang akan berfungsi untuk menampilkan
  * Output ketia pembayaran menggunakan Bank Payment
- * @Leonardus Kevin
- * @27.06.2021
+ * @author Leonardus Kevin
+ * @version 27.06.2021
  */
 public class BankPayment extends Invoice
 {

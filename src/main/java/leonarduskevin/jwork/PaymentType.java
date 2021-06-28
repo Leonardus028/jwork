@@ -2,7 +2,7 @@ package leonarduskevin.jwork;
 /**
  * Merupakan Enum Class yang berfungsi untuk membatasi kategori 
  * pembayaran yang ada
- * @Leonardus Kevin
+ * @author Leonardus Kevin
  * @version 27.06.2021
  */
 public enum PaymentType
