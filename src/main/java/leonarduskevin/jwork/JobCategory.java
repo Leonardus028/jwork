@@ -3,7 +3,7 @@ package leonarduskevin.jwork;
  * Merupakan Enum Class yang berfungsi untuk membatasi kategori 
  * pekerjaan yang ada
  * @Leonardus Kevin
- * @25.03.2021
+ * @27.06.2021
  */
 public enum JobCategory
 {

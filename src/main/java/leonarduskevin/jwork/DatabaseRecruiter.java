@@ -2,10 +2,9 @@ package leonarduskevin.jwork;
 import java.util.ArrayList;
 
 /**
- * Class Location berfungsi untuk menangani objek yang berkaitan dengan 
- * database pekerkaan, yang berisi list recruiter
+ * Class untuk menyimpan semua object Recruiter yang ada dalam ArrayList Recruiter
  * @author Leonardus Kevin
- * @version 18-3-2021
+ * @version 27.06.2021
  */
 public class DatabaseRecruiter
 {
@@ -13,14 +12,23 @@ public class DatabaseRecruiter
     public static int lastId = 0;
     private static String[] listRecruiter;
 
-
+    /**
+     * Method untuk mengambil semua Recruiter dari Database
+     */
     public static ArrayList<Recruiter> getRecruiterDatabase(){
         return RECRUITER_DATABASE;
     }
+
+    /**
+     * Method untuk mengambil Recruiter berdasarkan ID terakhir
+     */
     public static int getLastId(){
         return lastId;
     }
 
+    /**
+     * Method untuk mengambil Bonus berdasarkan ID
+     */
     public static Recruiter getRecruiterById(int id) throws RecruiterNotFoundException {
         Recruiter temp = null;
         try{
@@ -37,12 +45,18 @@ public class DatabaseRecruiter
         throw new RecruiterNotFoundException(id);
     }
 
+    /**
+     * Method untuk menambahkan Recruiter ke dalam database
+     */
     public static boolean addRecruiter(Recruiter recruiter){
         RECRUITER_DATABASE.add(recruiter);
         lastId = recruiter.getId();
         return true;
     }
 
+    /**
+     * Method untuk menghapus Recruiter dari database
+     */
     public static boolean removeRecruiter(int id) throws RecruiterNotFoundException {
         boolean temp = true;
         try{

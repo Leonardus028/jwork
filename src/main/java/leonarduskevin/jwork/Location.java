@@ -3,11 +3,11 @@ package leonarduskevin.jwork;
  * Class Location berfungsi untuk menangani objek yang berkaitan dengan 
  * informasi lokasi, seperti nama provinsi, kota dan deskripsi
  * @author Leonardus Kevin
- * @version 18-3-2021
+ * @version 27.06.2021
  */
 public class Location
 {
-    // instance variables - replace the example below with your own
+
     private String province;
     private String city;
     private String description;

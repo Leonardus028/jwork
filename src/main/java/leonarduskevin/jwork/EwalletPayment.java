@@ -5,9 +5,8 @@ import java.util.ArrayList;
 /**
  * Merupakan SubClass dari Class Invoice, yang akan berfungsi untuk menampilkan
  * Output ketia pembayaran menggunakan Ewallet Payment
- *
  * @Leonardus Kevin
- * @4.1.2021
+ * @27.06.2021
  */
 public class EwalletPayment extends Invoice
 {
@@ -16,32 +15,42 @@ public class EwalletPayment extends Invoice
     private Bonus bonus;
 
     /**
-     * Constructor for objects of class EwalletPayment
+     * Constructor untuk object E-wallet Payment
      */
     public EwalletPayment(int id, ArrayList<Job> jobs, Jobseeker jobseeker)
     {
         super(id, jobs, jobseeker);
     }
-    
+    /**
+     * Constructor untuk object E-wallet Payment menggunakan bonus
+     */
     public EwalletPayment(int id, ArrayList<Job> jobs, Jobseeker jobseeker,  Bonus bonus)
     {
         super(id, jobs, jobseeker);
         this.bonus = bonus;
     }
-
+    /**
+     * Method untuk mengambil jenis Payment yang digunakan
+     */
     @Override
     public PaymentType getPaymentType() {
         return PAYMENT_TYPE;
     }
-
+    /**
+     * Method untuk mengambil Bonus yang digunakan
+     */
     public Bonus getBonus() {
         return bonus;
     }
-
+    /**
+     * Method untuk memberi nilai Bonus yang digunakan
+     */
     public void setBonus(Bonus bonus) {
         this.bonus = bonus;
     }
-
+    /**
+     * Method untuk memberi nilai total fee sebuah job
+     */
     @Override
     public void setTotalFee() {
         ArrayList<Job> jobs = getJobs();
@@ -54,7 +63,9 @@ public class EwalletPayment extends Invoice
             }
         }
     }
-
+    /**
+     * Method untuk melakukan print semua infromasi terkait E-wallet Payment
+     */
     @Override
     public String toString() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMMM yyyy");

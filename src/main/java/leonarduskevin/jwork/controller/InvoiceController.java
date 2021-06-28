@@ -2,19 +2,30 @@ package leonarduskevin.jwork.controller;
 
 
 import leonarduskevin.jwork.*;
+import leonarduskevin.jwork.postgre.DatabaseJobseekerPostgre;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
+/**
+ * Class untuk mengatur Request Method Invoice
+ * @author Leonardus Kevin
+ * @version 27.06.2021
+ */
+
 @RequestMapping("/invoice")
 @RestController
 public class InvoiceController {
-
+    /**
+     * Method untuk mengambil semua invoice dari database
+     */
     @RequestMapping(value = "", method = RequestMethod.GET)
     public ArrayList<Invoice> getAllInvoice() {
         return (DatabaseInvoice.getInvoiceDatabase());
     }
-
+    /**
+     * Method untuk mengambil invoice menggunakan id
+     */
     @RequestMapping("/{id}")
     public Invoice getInvoiceById(@PathVariable int id) {
         Invoice invoice = null;
@@ -26,31 +37,20 @@ public class InvoiceController {
         }
         return invoice;
     }
-
-    @RequestMapping("/Jobseeker/{JobseekerId}")
-    public ArrayList<Invoice> getInvoiceByJobseeker(@PathVariable int id) {
+    /**
+     * Method untuk mengambil invoice menggunakan ID jobseeker
+     */
+    @RequestMapping("/jobseeker/{jobseekerId}")
+    public ArrayList<Invoice> getInvoiceByJobseeker(@PathVariable int jobseekerId) {
         ArrayList<Invoice> invoice = null;
-        invoice = DatabaseInvoice.getInvoiceByJobSeeker(id);
-
+        invoice = DatabaseInvoice.getInvoiceByJobSeeker(jobseekerId);
         return invoice;
     }
-
-
-
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public boolean removeInvoice(@PathVariable int id) {
-        try {
-            DatabaseInvoice.removeInvoice(id);
-            return true;
-        } catch (InvoiceNotFoundException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
-
-    @RequestMapping(value = "invoiceStatus/{id}", method = RequestMethod.PUT)
-    public Invoice changeInvoiceStatus(@PathVariable int id,
-                                       @RequestParam(value = "status") InvoiceStatus status){
+    /**
+     * Method untuk mengubah status invoice berdasarkan ID
+     */
+    @RequestMapping(value = "/invoiceStatus/{id}", method = RequestMethod.PUT)
+    public Invoice changeInvoiceStatus(@PathVariable int id, @RequestParam(value = "status") InvoiceStatus status) {
         Invoice invoice = null;
         try {
             invoice = DatabaseInvoice.getInvoiceById(id);
@@ -61,8 +61,24 @@ public class InvoiceController {
             return null;
         }
     }
-
-    @RequestMapping(value = "createBankPayment", method = RequestMethod.POST)
+    /**
+     * Method untuk menghapus invoice berdasarkan ID
+     */
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public boolean removeInvoice(@PathVariable int id) {
+        try {
+            DatabaseInvoice.removeInvoice(id);
+            return true;
+        } catch (InvoiceNotFoundException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+    /**
+     * Method untuk menambah invoice menggunakan Bank payment ke dalam
+     * database
+     */
+    @RequestMapping(value = "/createBankPayment", method = RequestMethod.POST)
     public Invoice addBankPayment(@RequestParam(value = "jobIdList") ArrayList<Integer> jobIdList,
                                   @RequestParam(value = "jobseekerId") int jobseekerId,
                                   @RequestParam(value = "adminFee") int adminFee) {
@@ -76,16 +92,16 @@ public class InvoiceController {
             }
         }
         try {
-            invoice = new BankPayment(DatabaseInvoice.getLastId() + 1, jobs, DatabaseJobseeker.getJobseekerById(jobseekerId), adminFee);
+            invoice = new BankPayment(DatabaseInvoice.getLastId() + 1, jobs, DatabaseJobseekerPostgre.getJobseekerById(jobseekerId), adminFee);
             invoice.setTotalFee();
-        } catch (JobSeekerNotFoundException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         boolean status = false;
         try {
             status = DatabaseInvoice.addInvoice(invoice);
         } catch (OngoingInvoiceAlreadyExistsException e) {
-            e.printStackTrace();
+            e.getMessage();
         }
         if (status) {
             return invoice;
@@ -93,24 +109,27 @@ public class InvoiceController {
             return null;
         }
     }
-
-    @RequestMapping(value = "createEWalletPayment", method = RequestMethod.POST)
+    /**
+     * Method untuk menambah invoice menggunakan E-wallet payment ke dalam
+     * database
+     */
+    @RequestMapping(value = "/createEWalletPayment", method = RequestMethod.POST)
     public Invoice addEWalletPayment(@RequestParam(value = "jobIdList") ArrayList<Integer> jobIdList,
                                      @RequestParam(value = "jobseekerId") int jobseekerId,
                                      @RequestParam(value = "referralCode") String referralCode) {
         Invoice invoice = null;
         ArrayList<Job> jobs = new ArrayList<>();
-        for(var i = 0; i < jobIdList.size(); i++) {
+        for (Integer integer : jobIdList) {
             try {
-                jobs.add(DatabaseJob.getJobById(jobIdList.get(i)));
+                jobs.add(DatabaseJob.getJobById(integer));
             } catch (JobNotFoundException e) {
                 e.getMessage();
             }
         }
         try {
-            invoice = new EwalletPayment(DatabaseInvoice.getLastId() + 1, jobs, DatabaseJobseeker.getJobseekerById(jobseekerId), DatabaseBonus.getBonusByReferralCode(referralCode));
+            invoice = new EwalletPayment(DatabaseInvoice.getLastId() + 1, jobs, DatabaseJobseekerPostgre.getJobseekerById(jobseekerId), DatabaseBonus.getBonusByReferralCode(referralCode));
             invoice.setTotalFee();
-        } catch (JobSeekerNotFoundException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         boolean status = false;
@@ -125,8 +144,4 @@ public class InvoiceController {
             return null;
         }
     }
-
-
-
-
 }

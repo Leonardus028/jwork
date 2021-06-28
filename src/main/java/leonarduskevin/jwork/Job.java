@@ -3,7 +3,7 @@ package leonarduskevin.jwork;
  * Class Location berfungsi untuk menangani objek yang berkaitan dengan 
  * informasi pekerjaan, seperti id, nama, recruiter, fee yang diberikan dan kategory
  * @author Leonardus Kevin
- * @version 18-3-2021
+ * @27.06.2021
  */
 public class Job
 {
@@ -110,8 +110,7 @@ public class Job
         this.category=category;
     }
     /**
-    * Method ini digunakan untuk menampilkan data, tetapi method ini 
-    * belum dilengkapi
+    * Method ini digunakan untuk menampilkan data
     */
     public String toString() 
     {

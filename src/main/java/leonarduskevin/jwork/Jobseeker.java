@@ -3,7 +3,7 @@ package leonarduskevin.jwork;
  * Class Jobseeker berfungsi untuk menangani objek yang berkaitan dengan 
  * informasi pencari kerja, seperti id, nama, email, password dan tanggal masuk
  * @author Leonardus Kevin
- * @version 18-3-2021
+ * @version 27.06.2021
  */
 
 import java.util.regex.*;
@@ -14,7 +14,7 @@ import java.util.Calendar;
 
 public class Jobseeker
 {
-    // instance variables - replace the example below with your own
+
     private int id;
     private String name;
     private String email;

@@ -10,7 +10,7 @@ import java.util.GregorianCalendar;
  * informasi nota, seperti id, id pekerjaan, tanggal, total harga dan objek dari
  * job seeker
  * @author Leonardus Kevin
- * @version 18-3-2021
+ * @version 27.06.2021
  */
 public abstract class Invoice
 {
@@ -75,10 +75,15 @@ public abstract class Invoice
     {
         return this.jobseeker;
     }
-    
+    /**
+     * Method ini digunakan untuk mengembalikan nilai Payment Type
+     */
     public abstract PaymentType getPaymentType();
 
-    
+    /**
+     * Method ini digunakan untuk mengembalikan nilai Status Invoice
+     * @return invoiceStatus
+     */
     public InvoiceStatus getInvoiceStatus()
     {
 
@@ -111,7 +116,9 @@ public abstract class Invoice
 
         this.date=date;
     }
-    
+    /**
+     * Method ini digunakan untuk memberikan nilai untuk tanggal.
+     */
     public void setDate(int year, int month, int dayOfMonth)
     {
         this.date = new GregorianCalendar(year, (month-1), dayOfMonth);
@@ -123,7 +130,7 @@ public abstract class Invoice
     public abstract void setTotalFee();
     
     /**
-    * Method ini digunakan untuk memberikan nilai untuk class jobseeker.
+    * Method ini digunakan untuk memberikan nilai untuk jobseeker.
     * @param jobseeker
     */
     public void setJobseeker(Jobseeker jobseeker)
@@ -131,13 +138,15 @@ public abstract class Invoice
         this.jobseeker=jobseeker;
     }
 
-
+    /**
+     * Method ini digunakan untuk memberikan nilai untuk Invoice Status
+     * @param invoiceStatus
+     */
     public void setInvoiceStatus(InvoiceStatus invoiceStatus) {
         this.invoiceStatus = invoiceStatus;
     }
     /**
-    * Method ini digunakan untuk menampilkan data, tetapi method ini 
-    * belum dilengkapi
-    */
+    * Method ini digunakan untuk menampilkan data
+     * */
     public abstract String toString();
 }

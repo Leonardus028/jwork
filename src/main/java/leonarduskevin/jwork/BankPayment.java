@@ -5,9 +5,8 @@ import java.util.ArrayList;
 /**
  * Merupakan SubClass dari Class Invoice, yang akan berfungsi untuk menampilkan
  * Output ketia pembayaran menggunakan Bank Payment
- *
  * @Leonardus Kevin
- * @5.1.2021
+ * @27.06.2021
  */
 public class BankPayment extends Invoice
 {
@@ -16,19 +15,23 @@ public class BankPayment extends Invoice
     private int adminFee;
 
     /**
-     * Constructor for objects of class EwalletPayment
+     * Constructor untuk object Bank Payment
      */
     public BankPayment(int id, ArrayList<Job> jobs, Jobseeker jobseeker)
     {
         super(id, jobs, jobseeker);
     }
-    
+    /**
+     * Constructor untuk object Bank Payment yang terkena adminFee
+     */
     public BankPayment(int id, ArrayList<Job> jobs, Jobseeker jobseeker,  int adminFee)
     {
         super(id, jobs, jobseeker);
         this.adminFee = adminFee;
     }
-
+    /**
+     * Method untuk memberikan total fee sebuah job
+     */
     @Override
     public void setTotalFee() {
         for(Job job : getJobs()) {
@@ -40,17 +43,28 @@ public class BankPayment extends Invoice
             }
         }
     }
-
+    /**
+     * Method untuk mengambil jenis Payment yang digunakan
+     */
     @Override
     public PaymentType getPaymentType() {
         return PAYMENT_TYPE;
     }
+    /**
+     * Method untuk mengambil Admin Fee
+     */
     public int getAdminFee() {
         return adminFee;
     }
+    /**
+     * Method untuk memberi nilai Admin Fee
+     */
     public void setAdminFee(int adminFee) {
         this.adminFee = adminFee;
     }
+    /**
+     * Method untuk melakukan print semua infromasi terkait Bank Payment
+     */
     @Override
     public String toString() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMMM-yyyy");

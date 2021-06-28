@@ -2,25 +2,29 @@ package leonarduskevin.jwork;
 import java.util.ArrayList;
 
 /**
- * Class Location berfungsi untuk menangani objek yang berkaitan dengan 
- * database pekerkaan, yang berisi list bonus
- *
- * @Leonardus Kevin
- * @4.1.2021
+ * Class untuk menyimpan semua object Bonus yang ada dalam ArrayList Bonus
+ * @author Leonardus Kevin
+ * @version 27.06.2021
  */
 public class DatabaseBonus {
     public static ArrayList<Bonus> BONUS_DATABASE= new ArrayList<Bonus>();
     public static int lastId = 0;
     private static String[] listBonus;
-
+    /**
+     * Method untuk mengambil semua Bonus dari Database
+     */
     public static ArrayList<Bonus> getBonusDatabase(){
         return BONUS_DATABASE;
     }
-
+    /**
+     * Method untuk mengambil Bonus berdasarkan ID terakhir
+     */
     public static int getLastId(){
         return lastId;
     }
-
+    /**
+     * Method untuk mengambil Bonus berdasarkan ID
+     */
     public static Bonus getBonusById(int id) throws BonusNotFoundException {
         Bonus temp = null;
         try {
@@ -36,7 +40,9 @@ public class DatabaseBonus {
         }
         throw new BonusNotFoundException(id);
     }
-
+    /**
+     * Method untuk mengambil Bonus berdasarkan Referral Code
+     */
     public static Bonus getBonusByReferralCode(String referralCode){
        Bonus bonus = null;
        for(int i = 0; i < BONUS_DATABASE.size(); i++){
@@ -46,7 +52,9 @@ public class DatabaseBonus {
        }
        return bonus;
     }
-
+    /**
+     * Method untuk menambahkan Bonus ke dalam Database
+     */
     public static boolean addBonus(Bonus bonus) throws ReferralCodeAlreadyExistsException {
         try {
             for (Bonus b : BONUS_DATABASE) {
@@ -85,7 +93,9 @@ public class DatabaseBonus {
         }
         return x;
     }
-
+    /**
+     * Method untuk menghapus Bonus dari database
+     */
     public static boolean removeBonus(int id) throws BonusNotFoundException{
         try{
             for (Bonus bonus : BONUS_DATABASE) {

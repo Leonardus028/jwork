@@ -9,15 +9,24 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 
 import static leonarduskevin.jwork.DatabaseRecruiter.getRecruiterDatabase;
-
+/**
+ * Class untuk mengatur Request Method Recruiter
+ * @author Leonardus Kevin
+ * @version 27.06.2021
+ */
 @RequestMapping("/recruiter")
 @RestController
 public class RecruiterController {
+    /**
+     * Method untuk mengambil semua Recruiter dalam database
+     */
     @RequestMapping("")
     public ArrayList<Recruiter> getAllRecruiter() {
         return getRecruiterDatabase();
     }
-
+    /**
+     * Method untuk mengambil Recrutier berdasarkan ID
+     */
     @RequestMapping("/{id}")
     public Recruiter getRecruiterById(@PathVariable int id) {
         Recruiter recruiter = null;
@@ -29,7 +38,10 @@ public class RecruiterController {
 
         return recruiter;
     }
-
+    /**
+     * Method untuk menambahkan Recruiter ke dalam
+     * database
+     */
     @RequestMapping(value = "", method = RequestMethod.POST)
     public Recruiter addRecruiter(@RequestParam(value="name") String name,
                                   @RequestParam(value="email") String email,

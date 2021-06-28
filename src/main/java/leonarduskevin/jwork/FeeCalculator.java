@@ -1,4 +1,9 @@
 package leonarduskevin.jwork;
+/**
+ * Class yang digunakan untuk menghitung Invoice ID
+ * @Leonardus Kevin
+ * @27.06.2021
+ */
 public class FeeCalculator implements Runnable{
     private Invoice invoice;
 
